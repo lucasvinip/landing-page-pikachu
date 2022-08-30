@@ -1,16 +1,17 @@
-*{
+* {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
-:root{
+
+:root {
     --primary-color: #F5CF06;
     --secondary-color: #8E4106;
     --white: #FFFFFF;
     --space-default: 70px;
 }
 
-body{
+body {
     height: 100vh;
     background-color: var(--primary-color);
     display: flex;
@@ -22,11 +23,11 @@ body{
     font-family: 'Righteous', cursive;
 }
 
-header{
+header {
     height: 48px;
-
 }
-.logo{
+
+.logo {
     display: flex;
     align-items: center;
     gap: 16px;
@@ -35,54 +36,58 @@ header{
     font-size: 2rem;
 }
 
-main{
+main {
     flex-grow: 1;
     display: grid;
-    grid-template-columns: repeat(12,1fr);
+    grid-template-columns: repeat(12, 1fr);
 }
-.pikachu-img{
+
+.pikachu-img {
     position: absolute;
     z-index: 1;
     top: 50%;
     left: 50%;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
 }
 
-.title{
+.title {
     position: relative;
     grid-column: 1/-1;
-    place-self: center; 
+    place-self: center;
     display: flex;
     flex-direction: column;
-    align-items: center; 
+    align-items: center;
 }
-.title__text{
+
+.title__text {
     color: var(--white);
     font-size: 20vw;
 }
-.title__transparent{
+
+.title__transparent {
     font-size: 27vw;
     position: absolute;
     z-index: -1;
     transform: translateY(-35%);
     color: #FFFFFF55;
-    
 }
 
-.description{
+.description {
     grid-column: 1/7;
     place-self: center start;
     color: var(--secondary-color);
 }
-.description__title{
+
+.description__title {
     font-size: 4rem;
 }
-.description__text{
+
+.description__text {
     font-size: 1.2rem;
     width: 500px;
 }
 
-.action{
+.action {
     grid-column: 7/-1;
     place-self: center end;
     height: 100px;
@@ -96,7 +101,36 @@ main{
     text-decoration: none;
 }
 
-footer{
+footer {
     text-align: center;
     color: var(--secondary-color)
+}
+
+@media (max-width:960px) {
+     :root {
+        --space-default: 30px;
+    }
+    main {
+        grid-template-columns: 1fr;
+    }
+    .pikachu-img {
+        transform: translate(-50%, -60%);
+    }
+    .title {
+        place-self: start center;
+    }
+    .description {
+        grid-row: 2;
+        grid-column: 1/-1;
+        place-self: center;
+        text-align: center;
+    }
+    .action {
+        grid-row: 2;
+        grid-column: 1/-1;
+        place-self: end center;
+    }
+    footer {
+        display: none;
+    }
 }
